@@ -23,10 +23,13 @@ galleryinfo = m.group(1).split(",")
 
 if (gallery_id > 0 and gallery_id <= 274825): 
 	server = 'm1.imhentai.com' 
-if (gallery_id > 274825 and gallery_id <= 551579): 
+if (gallery_id > 274825 and gallery_id <= 403818): 
 	server = 'm2.imhentai.com'
-if (gallery_id > 551579):
+if (gallery_id > 403818 and gallery_id <= 527143):
+	server = 'm3.imhentai.com'
+if (gallery_id > 527143):
 	server = 'm4.imhentai.com'
+	
 	
 if not os.path.exists(a):
     os.makedirs(a)
