@@ -15,20 +15,22 @@ b = m.group(2) #url pt 1
 a = m.group(3) #album name 
 
 #fuckin galleryinfo
-galleryinfo_url = "http://imhentai.com/downloads/" + b + "/" + e + ".js"
+galleryinfo_url = "http://imhentai.xxx/downloads/" + b + "/" + e + ".js"
 galleryinfo_raw = requests.get(galleryinfo_url).content
 regex = re.compile(r'\[(.*)\]')
 m = regex.search(str(galleryinfo_raw))
 galleryinfo = m.group(1).split(",")
 
 if (gallery_id > 0 and gallery_id <= 274825): 
-	server = 'm1.imhentai.com' 
+	server = 'm1.imhentai.xxx' 
 if (gallery_id > 274825 and gallery_id <= 403818): 
-	server = 'm2.imhentai.com'
+	server = 'm2.imhentai.xxx'
 if (gallery_id > 403818 and gallery_id <= 527143):
-	server = 'm3.imhentai.com'
-if (gallery_id > 527143):
-	server = 'm4.imhentai.com'
+	server = 'm3.imhentai.xxx'
+if (gallery_id > 527143 and gallery_id <= 632481):
+	server = 'm4.imhentai.xxx'
+if (gallery_id > 632481):
+    server = 'm5.imhentai.xxx'
 	
 	
 if not os.path.exists(a):
