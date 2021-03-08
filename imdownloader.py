@@ -8,8 +8,8 @@ html = requests.get(url).content
 regex = re.compile('gallery/(\d*)')
 m = regex.search(url)
 gallery_id = int(m.group(1))
-regex = re.compile(r"download_gallery\(\\'([^\\]*)\\', \\'([^\\]*)\\', \\'([^\\]*)\\'\)")
-m = regex.search(str(html))
+regex = re.compile(r"download_gallery\('([^\\]*)', '([^\\]*)', '([^\\]*)'\)")
+m = regex.search(html.decode())
 e = m.group(1) #url pt 2
 b = m.group(2) #url pt 1
 a = m.group(3) #album name 
@@ -18,7 +18,7 @@ a = m.group(3) #album name
 galleryinfo_url = "http://imhentai.xxx/downloads/" + b + "/" + e + ".js"
 galleryinfo_raw = requests.get(galleryinfo_url).content
 regex = re.compile(r'\[(.*)\]')
-m = regex.search(str(galleryinfo_raw))
+m = regex.search(galleryinfo_raw.decode())
 galleryinfo = m.group(1).split(",")
 
 if (gallery_id > 0 and gallery_id <= 274825): 
@@ -32,7 +32,8 @@ if (gallery_id > 527143 and gallery_id <= 632481):
 if (gallery_id > 632481):
     server = 'm5.imhentai.xxx'
 	
-	
+# make windows happy with dir name
+a = re.sub(r"[/\\:*?\"<>|]", '', a)
 if not os.path.exists(a):
     os.makedirs(a)
 
