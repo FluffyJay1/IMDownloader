@@ -39,7 +39,7 @@ if not os.path.exists(a):
 
 regex = re.compile('"[^"]*":"(.*)"')
 total_images = len(galleryinfo)
-print("downloading " + str(total_images) + " images...")
+print("downloading " + str(total_images) + " images to " + a + "/ ...")
 for i in range(total_images):
 	m = regex.search(galleryinfo[i])
 	n = m.group(1).split('|')
@@ -48,3 +48,5 @@ for i in range(total_images):
 	print("downloading " + str(i + 1) + "/" + str(total_images) + ": " + o)
 	r = requests.get(l)
 	open(a + "/" + o, 'wb').write(r.content)
+
+print("finished downloading " + a)
