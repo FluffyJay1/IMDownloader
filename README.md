@@ -1,4 +1,4 @@
-# ImDownloader
+# ImDownloader (NO LONGER FUNCTIONAL)
 
 Small python script to bypass login requirements to download galleries from IMHentai
 
